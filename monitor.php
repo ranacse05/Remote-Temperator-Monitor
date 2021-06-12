@@ -5,10 +5,10 @@
    $file = fopen("sys.log","w");
   	
 	
-	$temp = number_format($_GET['temperature'],2)-2;
+	$temp = $_GET['temperature'];
 	$minute =  intval(date('i'));
 	$time = time();
-  $server = $_GET['server'];
+   $server = $_GET['server'];
 
     $sql = 'UPDATE minutes set time_stamp="'.$time.'", temp="'.$temp.'" where minutes="'.$minute.'"';
 	

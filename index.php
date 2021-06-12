@@ -76,10 +76,10 @@ unset($db);
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
 				<img src="images/logo.png" width='380' style='padding:10px 40px'>
-				<div class="panel-heading" style="font-family: courier;height: 100px">Temperature Monitoring System 
-					Login
+				<div class="panel-heading">Temperature Monitoring System 
+					
 				</div>
-				<div class="panel-body" style="font-family: courier">
+				<div class="panel-body" style="font-family: courier" align="center">
 					<form role="form" id="form" action="index.php" method="post">
 						<fieldset>
 							<div class="form-group">

@@ -5,7 +5,7 @@
    $file = fopen("sys2.log","w");
   	
 	
-	$temp = number_format($_GET['temperature'],2)+5.00;
+	$temp = number_format($_GET['temperature'],2);
 	$minute =  intval(date('i'));
 	$time = time();
 
