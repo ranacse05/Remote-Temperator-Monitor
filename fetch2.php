@@ -17,6 +17,7 @@ require_once 'db.php';
     $temp = array();
     $temp[]  = $res['minutes'];
     $temp[] = $res['temp'];
+    $temp[] = 24.8;
     array_push($data, $temp);    
   }
 echo json_encode($data);

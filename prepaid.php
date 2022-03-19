@@ -150,7 +150,7 @@ $(function() {
         dataType: 'json',
         success: function(resp)
         {
-            //console.log('response:'+resp);   
+            console.log('response:'+resp);   
             var options = {
 		      legend: { show: false },
 		      series: {
