@@ -9,14 +9,14 @@
 
      require_once 'db.php';
 
-     $str = "select minutes,temp from minutes order by time_stamp desc limit 1";
+     $str = "select minutes,temp,outdoor from minutes order by time_stamp desc limit 1";
     // echo $str.'<br/>';	
    $results= $db->query($str);
 
   //echo 'here';
 
   $data1= array();
-  
+  $outdoor = 0 ;
   while ($res= $results->fetchArray())
   {
         //print_r($res);
@@ -24,7 +24,7 @@
     $temp_array = array();
     $temp_array[]  = $res['minutes'];
     $temp_array[] = $res['temp'];
-    
+    $outdoor = $res['outdoor'];
    array_push($data1, $temp_array);
   }
  // echo 'Data1<br/>';
@@ -113,7 +113,9 @@
 					<li><a class="" href="postpaid.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Post-paid
 					</a></li>
-					
+					<li class=""><a class="" href="settings.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> Settings
+					</a></li>
 				</ul>
 			</li>
 			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
@@ -142,6 +144,7 @@
 					
 					<div class="panel-body">
 						   <div class="dx-viewport demo-container">
+						
 					        	<div style='width: 400px;float: left;'>
 					        		<div id="gauge1" style="width: 340px;height: 100%;float: left; margin-right:50px "></div>
 					        		<div id='temp1' class='temp'><?php echo $data1[0][1];?>&#8451;</div>
@@ -151,7 +154,9 @@
 					        		<div id='temp2' class='temp'><?php echo $data2[0][1];?>&#8451;</div>
 					        	</div>
 
-
+								<div style='width: 380px; margin:10px' class='temp'>
+						     Outdoor Temperature 
+							 : <?php echo $outdoor;?>  </div>
 					    	</div>
 					</div>
 				</div>

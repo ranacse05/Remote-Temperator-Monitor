@@ -10,7 +10,7 @@
      require_once 'db.php';
 
 
-   $results= $db->query("select minutes,temp from minutes2 order by minutes asc");
+   $results= $db->query("select minutes,temp,outdoor from minutes2 order by minutes asc");
 
   //echo 'here';
 
@@ -32,10 +32,11 @@
     $temp_array = array();
     $temp_array[]  = $res['minutes'];
     $temp_array[] = $res['temp'];
-    
+    $temp_array['outdoor'] = $res['outdoor'];
    array_push($data, $temp_array);
   }
 
+  
    $db->close();
    unset($db);
 ?>
@@ -98,7 +99,9 @@
 					<li class="active"><a class="" href="postpaid.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Post-paid
 					</a></li>
-					
+					<li class=""><a class="" href="settings.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> Settings
+					</a></li>
 				</ul>
 			</li>
 			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
@@ -117,7 +120,7 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Pre-Paid Room temperature</h1>
+				<h1 class="page-header">Pre-Paid Room temperature </h1>
 			</div>
 		</div><!--/.row-->
 		
@@ -125,7 +128,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-					
+					Outdoor temperature <?php echo $data[0]['outdoor']?>°C
 					</div>
 					<div class="panel-body">
 						    <div id="placeholder" style="width:98%;height:300px;"></div>
@@ -140,7 +143,7 @@
 	
 	<script type="text/javascript">
 $(function() {
-      var threshold = 22;
+      var threshold = 27;
 
       function GetData() {
     $.ajaxSetup({ cache: false });
@@ -166,14 +169,22 @@ $(function() {
 		      //plotting
 		      $.plot($("#placeholder"),[
 		      {
-		      data: resp,
+		      data: resp.indoor,
 		      lines: { show: true,  lineWidth: 2},
 		      color: "rgb(200, 20, 30)",
 		      threshold: { below: threshold, color: "rgb(30, 180, 20)" },
 		      curvedLines: {
 		      apply: true,
 		      }
+		      }/*,
+			  {
+		      data: resp.outdoor,
+		      lines: { show: true,  lineWidth: 2},
+		      color: "rgb(255,69,0)",
+		      curvedLines: {
+		      apply: true,
 		      }
+		      }*/
 		      ], options);
 
             setTimeout(GetData, 1000*60);  

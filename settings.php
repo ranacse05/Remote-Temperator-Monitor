@@ -11,7 +11,7 @@
      require_once 'db.php';
 
 
-   $results= $db->query("select minutes,temp,outdoor from minutes order by minutes asc");
+   $results= $db->query("select * from settings");
 
   //echo 'here';
 
@@ -22,20 +22,14 @@
   
   while ($res= $results->fetchArray())
   {
-    if($i==0)
-      $end = $res['time_stamp'];
-
-    $i++;
-
-    if($i>=59)
-      $start = $res['time_stamp'];
-
-    $temp_array = array();
-    $temp_array[]  = $res['minutes'];
-    $temp_array[] = $res['temp'];
-    $temp_array['outdoor'] = $res['outdoor'];
-   array_push($data, $temp_array);
+      $data['temp1'] = $res['temp1'];
+      $data['temp2'] = $res['temp2'];
+      $data['number1'] = $res['number1'];
+      $data['number2'] = $res['number2'];
+      $data['status1'] = $res['status1'];
+      $data['status2'] = $res['status2'];
   }
+
 
    $db->close();
    unset($db);
@@ -52,11 +46,8 @@
 	<link href="css/styles.css" rel="stylesheet">
 	<script language="javascript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-    <script language="javascript" type="text/javascript" src="js/jquery.flot.js"></script>
-    <script language="javascript" type="text/javascript" src="js/jquery.flot.threshold.js"></script>
-    <script language="javascript" type="text/javascript" src="js/curvedLines.js"></script>
-    <script src="js/jquery.flot.tooltip.min.js"></script>
-
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	<!--[if lt IE 9]>
@@ -96,10 +87,10 @@
 					<li><a class="" href="prepaid.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Pre-paid
 					</a></li>
-					<li class="active"><a class="" href="postpaid.php">
+					<li class=""><a class="" href="postpaid.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Post-paid
 					</a></li>
-					<li class=""><a class="" href="settings.php">
+                    <li class="active"><a class="" href="settings.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Settings
 					</a></li>
 					
@@ -121,7 +112,7 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Post-Paid Room temperature</h1>
+				<h1 class="page-header">Settings</h1>
 			</div>
 		</div><!--/.row-->
 		
@@ -129,10 +120,31 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-					Outdoor temperature <?php echo $data[0]['outdoor']?>°C
+					
 					</div>
 					<div class="panel-body">
-						    <div id="placeholder" style="width:98%;height:300px;"></div>
+						    <div id="placeholder" style="width:98%;height:300px;">
+                            
+                            <table cellborder='0' cellspace='0'>
+                                <tr>
+                                    <td width='150'><?php echo $data['temp1'];?></td>
+                                    <td><?php echo $data['temp2'];?></td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo $data['number1'];?></td>
+                                    <td><?php echo $data['number2'];?></td>
+                                </tr>
+                                <tr>
+                                    <td><div id='sta1'><?php if($data['status1']==1) echo 'On'; else echo 'Off';?></div></td>
+                                    <td><div id='sta2'><?php if($data['status2']==1) echo 'On'; else echo 'Off';?></div></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id='switch1' onClick="update(1)" <?php if($data['status1']==1) echo 'checked';?> ></td>
+                                    <td><input type="checkbox" id='switch2' onClick="update(2)" <?php if($data['status2']==1) echo 'checked';?> ></td>
+                                </tr>
+                            </table>
+
+                            </div>
 					</div>
 				</div>
 			</div>
@@ -143,63 +155,37 @@
 	
 	
 	<script type="text/javascript">
-$(function() {
-      var threshold = 27;
+    function update(no) {
+        var id = 'switch'+no;
+        value = document.getElementById(id).checked;
+        
+        if(value)
+         value=1;
+        else
+         value=0;
+         console.log(no+'--'+value);
 
-      function GetData() {
     $.ajaxSetup({ cache: false });
-
     $.ajax({
-        url: "fetch.php",
+        url: "switch.php",
         dataType: 'json',
+        data: { no: no, value: value },
         success: function(resp)
         {
-            console.log('response:'+resp);   
-            var options = {
-		      legend: { show: false },
-		      series: {
-		      curvedLines: {active: true}
-		      },
-		      grid: { hoverable: true }, //important! flot.tooltip requires this
-		      tooltip: {
-		      show: true,
-		      content: "temperature is %y.1&#8451; at %x"
-		      }
-		      };
-		      
-		      //plotting
-		      $.plot($("#placeholder"),[
-		      {
-		      data: resp.indoor,
-		      lines: { show: true,  lineWidth: 2},
-		      color: "rgb(200, 20, 30)",
-		      threshold: { below: threshold, color: "rgb(30, 180, 20)" },
-		      curvedLines: {
-		      apply: true,
-		      }
-		      }/*, {
-		      data: resp.outdoor,
-		      lines: { show: true,  lineWidth: 2},
-		      color: "rgb(255,69,0)",
-		      threshold: { below: threshold, color: "rgb(30, 180, 20)" },
-		      curvedLines: {
-		      apply: true,
-		      }
-		      }*/
-		      ], options);
-
-            setTimeout(GetData, 1000*60);  
+            if(resp==1)
+            $('#sta'+no).html("On");
+            else if(resp==0)
+            $('#sta'+no).html("Off");
+            
+            console.log(no+'--response--'+resp);
+           
         },
         error: function () {
-            setTimeout(GetData, 1000*60);
+            
         }
     });
 }
-
-GetData();
-
-      });
-</script>
+    </script>
 
 		
 </body>
