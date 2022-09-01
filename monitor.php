@@ -8,7 +8,6 @@ ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_report
   	
 
    
-  //https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/23.830931%2C%2090.417709?unitGroup=metric&key=Z6SNVEG7JTYQU52LBQULPV3LJ&contentType=json
 
 	$temp = number_format($_GET['temperature']-1.5,2);
 	$minute =  intval(date('i'));
@@ -57,13 +56,13 @@ ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_report
 
       $sms_text = urlencode($sms_text);
       $number = $res1['number1'];
-      $url = "http://bulksms1.teletalk.com.bd:8091/link_sms_send.php?op=SMS&charset=ASCII&user=datacenter&pass=aP1_dsc@Dc_D&mobile={$number}&sms={$sms_text}";
+	   $url = 'sms_url'
       $sms_response = file_get_contents($url);
       fwrite($file2,$sms_response);
 
          if($temp>=$res1['temp2'] && $res1['status2']==1){
             $number = $res1['number2'];
-            $url = "http://bulksms1.teletalk.com.bd:8091/link_sms_send.php?op=SMS&charset=ASCII&user=datacenter&pass=aP1_dsc@Dc_D&mobile={$number}&sms={$sms_text}";
+            $url = "sms_url";
             $sms_response = file_get_contents($url);
             fwrite($file2,$sms_response);
          }
@@ -74,7 +73,7 @@ ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_report
    {
       //$url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/23.830866%2C%2090.417732?unitGroup=metric&key=Z6SNVEG7JTYQU52LBQULPV3LJ";
       
-      $url = "http://dataservice.accuweather.com/currentconditions/v1/27905?apikey=XwdlbjEs0H6jIOn5A9BmJumqcvXVzkf1";
+      $url = "http://dataservice.accuweather.com/currentconditions/v1/27905?apikey=apikey";
       $data = file_get_contents($url);
       $raw = json_decode($data);
       // echo 'DateTime:'.print_r($raw->days[0]->datetime);
