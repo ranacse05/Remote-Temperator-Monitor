@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	error_reporting(E_ALL);
 
 	if($_SESSION['login']!=1)
 		header('Location: index.php');    
@@ -49,6 +50,18 @@
   }
     //echo 'Data2<br>';
 	//print_r($data2);
+
+	$str = "select * from settings";
+    // echo $str.'<br/>';	
+   $results= $db->query($str);
+
+  //echo 'here';
+  $res = $results->fetchArray();
+  //echo '<pre>';
+  //var_dump($res);
+  //echo '</pre>';
+  $sms_balance = $res['sms_balance'];
+
 
    $db->close();
    unset($db);
@@ -116,6 +129,9 @@
 					<li class=""><a class="" href="settings.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Settings
 					</a></li>
+					<li class=""><a class="" href="smslog.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> SMS Log
+					</a></li>
 				</ul>
 			</li>
 			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
@@ -144,7 +160,16 @@
 					
 					<div class="panel-body">
 						   <div class="dx-viewport demo-container">
-						
+						   <div style='width: 400px;float: left;' class='temp'>
+						   SMS Balance : <?php echo $sms_balance;?>
+							</div>
+
+						   <div style='width: 400px;float: left;' class='temp'>
+						     Outdoor Temperature 
+							 : <?php echo $outdoor;?>&#8451;  </div>
+						  
+
+  
 					        	<div style='width: 400px;float: left;'>
 					        		<div id="gauge1" style="width: 340px;height: 100%;float: left; margin-right:50px "></div>
 					        		<div id='temp1' class='temp'><?php echo $data1[0][1];?>&#8451;</div>
@@ -154,9 +179,7 @@
 					        		<div id='temp2' class='temp'><?php echo $data2[0][1];?>&#8451;</div>
 					        	</div>
 
-								<div style='width: 380px; margin:10px' class='temp'>
-						     Outdoor Temperature 
-							 : <?php echo $outdoor;?>  </div>
+							
 					    	</div>
 					</div>
 				</div>

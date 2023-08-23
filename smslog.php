@@ -5,11 +5,8 @@
 	if($_SESSION['login']!=1)
 		header('Location: index.php');    
 
-
 	date_default_timezone_set('Asia/Dhaka');
-
-     require_once 'db.php';
-
+    require_once 'db.php';
 
    $results= $db->query("select * from smslog order by timestamp desc");
 

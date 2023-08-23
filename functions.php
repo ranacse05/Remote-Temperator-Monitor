@@ -21,13 +21,24 @@ function send_text($number,$text){
 
     //echo "<br> Difference".$diff;
     if($diff>=300){
-    $url = "http://bulksms1.teletalk.com.bd:8091/link_sms_send.php?op=SMS&charset=ASCII&user=datacenter&pass=aP1_dsc@Dc_D&mobile={$number}&sms={$text}";
+    $url = "http://bulksms1.teletalk.com.bd:8091/link_sms_send.php?op=SMS&charset=ASCII&user=datacenter&pass=aP1_dsc@Dc_D&mobile={$number}&sms={$text}&smsclass=NOTIFICATION";
     $sms_response = file_get_contents($url);
     fwrite($file2,$sms_response);
 
     $res = explode(',',$sms_response);
     $response = strip_tags($res[0]);
+    $balance = explode('=',$res[3]);
     $sql = 'Insert into smslog (`number`,`text`,`status`,`timestamp`) values ("'.$number.'","'.$text.'","'.$response.'","'.time().'")';
+    //echo $sql;
+    $ret = $db->exec($sql);
+       if(!$ret) {
+          fwrite($file,$db->lastErrorMsg());
+          if($db->lastErrorMsg()=='database is locked')
+          $db->exec('PRAGMA journal_mode = wal;');
+ 
+       }
+
+       $sql = 'update settings set sms_balance="'.$balance[1].'"';
     //echo $sql;
     $ret = $db->exec($sql);
        if(!$ret) {

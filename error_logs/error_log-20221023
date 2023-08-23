@@ -1,0 +1,93 @@
+[Sun Oct 16 03:18:01.714899 2022] [lbmethod_heartbeat:notice] [pid 1146] AH02282: No slotmem from mod_heartmonitor
+[Sun Oct 16 03:18:01.792160 2022] [mpm_prefork:notice] [pid 1146] AH00163: Apache/2.4.6 (CentOS) PHP/7.3.31 configured -- resuming normal operations
+[Sun Oct 16 03:18:01.792192 2022] [core:notice] [pid 1146] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Sun Oct 16 07:10:03.226656 2022] [php7:error] [pid 2470] [client 152.89.196.211:44660] script '/var/www/html/index.php' not found or unable to stat
+[Sun Oct 16 10:09:49.887554 2022] [php7:notice] [pid 2467] [client 192.168.1.112:55570] PHP Notice:  Undefined index: login in /var/www/html/tmons/index.php on line 6
+[Sun Oct 16 10:09:49.887679 2022] [php7:notice] [pid 2467] [client 192.168.1.112:55570] PHP Notice:  Undefined variable: error in /var/www/html/tmons/index.php on line 69
+[Sun Oct 16 10:09:54.186932 2022] [php7:notice] [pid 2467] [client 192.168.1.112:55570] PHP Notice:  Undefined index: login in /var/www/html/tmons/index.php on line 6, referer: http://192.168.0.59/tmons/
+[Sun Oct 16 10:09:54.187953 2022] [php7:notice] [pid 2467] [client 192.168.1.112:55570] PHP Notice:  Undefined variable: id in /var/www/html/tmons/index.php on line 25, referer: http://192.168.0.59/tmons/
+[Sun Oct 16 10:09:58.542312 2022] [php7:notice] [pid 2467] [client 192.168.1.112:55570] PHP Notice:  Undefined index: login in /var/www/html/tmons/index.php on line 6, referer: http://192.168.0.59/tmons/index.php
+[Sun Oct 16 10:10:09.474234 2022] [php7:notice] [pid 31121] [client 192.168.1.112:55583] PHP Notice:  Undefined index: time_stamp in /var/www/html/tmons/prepaid.php on line 25, referer: http://192.168.0.59/tmons/home.php
+[Sun Oct 16 10:10:09.474654 2022] [php7:notice] [pid 31121] [client 192.168.1.112:55583] PHP Notice:  Undefined index: time_stamp in /var/www/html/tmons/prepaid.php on line 30, referer: http://192.168.0.59/tmons/home.php
+[Sun Oct 16 10:10:09.474681 2022] [php7:notice] [pid 31121] [client 192.168.1.112:55583] PHP Notice:  Undefined index: time_stamp in /var/www/html/tmons/prepaid.php on line 30, referer: http://192.168.0.59/tmons/home.php
+[Sun Oct 16 10:10:11.490007 2022] [php7:notice] [pid 31121] [client 192.168.1.112:55583] PHP Notice:  Undefined index: time_stamp in /var/www/html/tmons/postpaid.php on line 26, referer: http://192.168.0.59/tmons/prepaid.php
+[Sun Oct 16 10:10:11.490343 2022] [php7:notice] [pid 31121] [client 192.168.1.112:55583] PHP Notice:  Undefined index: time_stamp in /var/www/html/tmons/postpaid.php on line 31, referer: http://192.168.0.59/tmons/prepaid.php
+[Sun Oct 16 10:10:11.490378 2022] [php7:notice] [pid 31121] [client 192.168.1.112:55583] PHP Notice:  Undefined index: time_stamp in /var/www/html/tmons/postpaid.php on line 31, referer: http://192.168.0.59/tmons/prepaid.php
+[Sun Oct 16 10:10:14.667275 2022] [php7:notice] [pid 31121] [client 192.168.1.112:55583] PHP Notice:  Undefined index: time_stamp in /var/www/html/tmons/postpaid.php on line 26, referer: http://192.168.0.59/tmons/postpaid.php
+[Sun Oct 16 10:10:14.667580 2022] [php7:notice] [pid 31121] [client 192.168.1.112:55583] PHP Notice:  Undefined index: time_stamp in /var/www/html/tmons/postpaid.php on line 31, referer: http://192.168.0.59/tmons/postpaid.php
+[Sun Oct 16 10:10:14.667606 2022] [php7:notice] [pid 31121] [client 192.168.1.112:55583] PHP Notice:  Undefined index: time_stamp in /var/www/html/tmons/postpaid.php on line 31, referer: http://192.168.0.59/tmons/postpaid.php
+[Sun Oct 16 10:10:23.764728 2022] [php7:notice] [pid 2470] [client 192.168.1.112:55587] PHP Notice:  Undefined variable: error in /var/www/html/tmons/index.php on line 69, referer: http://192.168.0.59/tmons/postpaid.php
+[Sun Oct 16 11:25:26.134663 2022] [mpm_prefork:notice] [pid 1146] AH00170: caught SIGWINCH, shutting down gracefully
+[Sun Oct 16 11:25:52.659568 2022] [suexec:notice] [pid 1149] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message
+[Sun Oct 16 11:25:52.805585 2022] [lbmethod_heartbeat:notice] [pid 1149] AH02282: No slotmem from mod_heartmonitor
+[Sun Oct 16 11:25:53.536960 2022] [mpm_prefork:notice] [pid 1149] AH00163: Apache/2.4.6 (CentOS) PHP/7.3.31 configured -- resuming normal operations
+[Sun Oct 16 11:25:53.537008 2022] [core:notice] [pid 1149] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Sun Oct 16 11:49:23.350410 2022] [php7:notice] [pid 1574] [client 192.168.1.112:49347] PHP Notice:  Undefined variable: error in /var/www/html/tmons/index.php on line 69
+[Sun Oct 16 12:16:19.504308 2022] [mpm_prefork:notice] [pid 1149] AH00170: caught SIGWINCH, shutting down gracefully
+[Sun Oct 16 12:16:44.614436 2022] [suexec:notice] [pid 1162] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message
+[Sun Oct 16 12:16:44.768496 2022] [lbmethod_heartbeat:notice] [pid 1162] AH02282: No slotmem from mod_heartmonitor
+[Sun Oct 16 12:16:45.209166 2022] [mpm_prefork:notice] [pid 1162] AH00163: Apache/2.4.6 (CentOS) PHP/7.3.31 configured -- resuming normal operations
+[Sun Oct 16 12:16:45.209209 2022] [core:notice] [pid 1162] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Sun Oct 16 17:00:49.802137 2022] [php7:warn] [pid 5707] [client 192.168.1.30:49932] PHP Warning:  file_get_contents(): php_network_getaddresses: getaddrinfo failed: Name or service not known in /var/www/html/tmons/monitor.php on line 69
+[Sun Oct 16 17:00:49.802296 2022] [php7:warn] [pid 5707] [client 192.168.1.30:49932] PHP Warning:  file_get_contents(http://dataservice.accuweather.com/currentconditions/v1/27905?apikey=XwdlbjEs0H6jIOn5A9BmJumqcvXVzkf1): failed to open stream: php_network_getaddresses: getaddrinfo failed: Name or service not known in /var/www/html/tmons/monitor.php on line 69
+[Sun Oct 16 17:00:49.802426 2022] [php7:notice] [pid 5707] [client 192.168.1.30:49932] PHP Notice:  Trying to get property 'Temperature' of non-object in /var/www/html/tmons/monitor.php on line 76
+[Sun Oct 16 17:00:49.802457 2022] [php7:notice] [pid 5707] [client 192.168.1.30:49932] PHP Notice:  Trying to get property 'Metric' of non-object in /var/www/html/tmons/monitor.php on line 76
+[Sun Oct 16 17:00:49.802469 2022] [php7:notice] [pid 5707] [client 192.168.1.30:49932] PHP Notice:  Trying to get property 'Value' of non-object in /var/www/html/tmons/monitor.php on line 76
+[Sun Oct 16 17:00:49.802601 2022] [php7:warn] [pid 5707] [client 192.168.1.30:49932] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 77
+[Sun Oct 16 17:00:49.802622 2022] [php7:notice] [pid 5707] [client 192.168.1.30:49932] PHP Notice:  Trying to get property 'Temperature' of non-object in /var/www/html/tmons/monitor.php on line 78
+[Sun Oct 16 17:00:49.802634 2022] [php7:notice] [pid 5707] [client 192.168.1.30:49932] PHP Notice:  Trying to get property 'Metric' of non-object in /var/www/html/tmons/monitor.php on line 78
+[Sun Oct 16 17:00:49.802644 2022] [php7:notice] [pid 5707] [client 192.168.1.30:49932] PHP Notice:  Trying to get property 'Value' of non-object in /var/www/html/tmons/monitor.php on line 78
+[Sun Oct 16 17:00:49.802704 2022] [php7:warn] [pid 5707] [client 192.168.1.30:49932] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 79
+[Sun Oct 16 17:00:49.802783 2022] [php7:warn] [pid 5707] [client 192.168.1.30:49932] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 88
+[Mon Oct 17 21:19:15.782289 2022] [php7:error] [pid 1575] [client 46.161.27.153:40700] script '/var/www/html/wp-login.php' not found or unable to stat
+[Tue Oct 18 02:23:32.489347 2022] [php7:warn] [pid 1575] [client 192.168.1.30:52986] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor2.php on line 18
+[Tue Oct 18 06:14:17.929574 2022] [php7:error] [pid 5708] [client 46.161.27.153:59318] script '/var/www/html/wp-login.php' not found or unable to stat
+[Tue Oct 18 07:30:43.809665 2022] [php7:warn] [pid 7309] [client 192.168.1.30:64377] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 77
+[Tue Oct 18 07:30:43.809840 2022] [php7:warn] [pid 7309] [client 192.168.1.30:64377] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 79
+[Tue Oct 18 07:30:43.809926 2022] [php7:warn] [pid 7309] [client 192.168.1.30:64377] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 88
+[Wed Oct 19 01:19:01.696055 2022] [php7:error] [pid 1580] [client 5.188.210.227:43432] script '/var/www/html/echo.php' not found or unable to stat, referer: https://www.google.com/
+[Wed Oct 19 12:00:28.896865 2022] [php7:warn] [pid 5706] [client 192.168.1.30:51422] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 77
+[Wed Oct 19 12:00:28.897029 2022] [php7:warn] [pid 5706] [client 192.168.1.30:51422] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 79
+[Wed Oct 19 12:00:28.897116 2022] [php7:warn] [pid 5706] [client 192.168.1.30:51422] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 88
+[Wed Oct 19 13:30:50.641795 2022] [php7:warn] [pid 7309] [client 192.168.1.30:57905] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 77
+[Wed Oct 19 13:30:50.641943 2022] [php7:warn] [pid 7309] [client 192.168.1.30:57905] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 79
+[Wed Oct 19 13:30:50.642027 2022] [php7:warn] [pid 7309] [client 192.168.1.30:57905] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 88
+[Thu Oct 20 01:35:28.478008 2022] [php7:error] [pid 5707] [client 46.101.151.178:52546] script '/var/www/html/system_api.php' not found or unable to stat
+[Thu Oct 20 12:00:02.554829 2022] [php7:warn] [pid 4300] [client 192.168.1.30:49866] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 77
+[Thu Oct 20 12:00:02.554991 2022] [php7:warn] [pid 4300] [client 192.168.1.30:49866] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 79
+[Thu Oct 20 12:00:02.555075 2022] [php7:warn] [pid 4300] [client 192.168.1.30:49866] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 88
+[Fri Oct 21 04:31:54.809836 2022] [php7:warn] [pid 5706] [client 192.168.1.30:64100] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 88
+[Fri Oct 21 04:32:55.046885 2022] [php7:warn] [pid 1580] [client 192.168.1.30:53681] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor2.php on line 18
+[Fri Oct 21 08:35:20.602762 2022] [php7:error] [pid 1575] [client 132.145.39.16:52507] script '/var/www/html/phpinfo.php' not found or unable to stat
+[Fri Oct 21 08:35:23.459562 2022] [php7:error] [pid 5707] [client 132.145.39.16:31791] script '/var/www/html/info.php' not found or unable to stat
+[Fri Oct 21 08:35:23.985338 2022] [php7:error] [pid 7309] [client 132.145.39.16:58415] script '/var/www/html/php.php' not found or unable to stat
+[Fri Oct 21 08:35:27.615624 2022] [php7:error] [pid 5708] [client 132.145.39.16:47965] script '/var/www/html/test.php' not found or unable to stat
+[Fri Oct 21 13:43:21.170243 2022] [php7:error] [pid 5707] [client 118.193.35.188:57212] script '/var/www/html/reg.php' not found or unable to stat, referer: http://103.231.135.59:80/reg.php
+[Fri Oct 21 13:43:21.307654 2022] [php7:error] [pid 1572] [client 118.193.35.188:56146] script '/var/www/html/kefu.php' not found or unable to stat, referer: http://103.231.135.59:80/kefu.php
+[Fri Oct 21 13:43:24.506991 2022] [php7:error] [pid 7309] [client 118.193.35.188:59346] script '/var/www/html/waplogin.php' not found or unable to stat, referer: http://103.231.135.59:80/waplogin.php
+[Fri Oct 21 13:43:25.243868 2022] [php7:error] [pid 7309] [client 118.193.35.188:59346] script '/var/www/html/index.php' not found or unable to stat, referer: http://103.231.135.59:80/index.php/sign
+[Fri Oct 21 13:43:34.567351 2022] [php7:error] [pid 1584] [client 118.193.35.188:33416] script '/var/www/html/index.php' not found or unable to stat, referer: http://103.231.135.59:80/index.php/User/sendsmscode
+[Fri Oct 21 13:43:35.538438 2022] [php7:error] [pid 1575] [client 118.193.35.188:56172] script '/var/www/html/index.php' not found or unable to stat, referer: http://103.231.135.59:80/index.php/Wap/Api/getBanner
+[Fri Oct 21 13:43:40.484542 2022] [php7:error] [pid 1584] [client 118.193.35.188:33416] script '/var/www/html/index.php' not found or unable to stat, referer: http://103.231.135.59:80/index.php/Wap/Api/getSystemNotice?id=1
+[Fri Oct 21 13:43:41.907681 2022] [php7:error] [pid 5708] [client 118.193.35.188:40574] script '/var/www/html/index.php' not found or unable to stat, referer: http://103.231.135.59:80/index.php?m=api&c=app&a=getPlatformConfig
+[Fri Oct 21 13:43:43.396547 2022] [php7:error] [pid 1580] [client 118.193.35.188:56138] script '/var/www/html/leftDao.php' not found or unable to stat, referer: http://103.231.135.59:80/leftDao.php?callback=jQuery183016740860980352856_1604309800583
+[Fri Oct 21 18:07:25.609457 2022] [php7:warn] [pid 5706] [client 192.168.1.30:58138] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 88
+[Fri Oct 21 18:08:25.877746 2022] [php7:warn] [pid 1575] [client 192.168.1.30:50321] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 88
+[Sat Oct 22 10:04:51.112709 2022] [cgi:error] [pid 18189] [client 161.97.74.103:58904] script not found or unable to stat: /var/www/cgi-bin/.env
+[Sat Oct 22 15:02:42.593439 2022] [php7:error] [pid 1576] [client 220.88.231.143:38842] script '/var/www/html/index.php' not found or unable to stat
+[Sat Oct 22 15:02:51.990346 2022] [php7:error] [pid 1576] [client 220.88.231.143:38842] script '/var/www/html/index.php' not found or unable to stat
+[Sat Oct 22 16:01:19.322546 2022] [php7:warn] [pid 5706] [client 192.168.1.30:65295] PHP Warning:  file_get_contents(http://dataservice.accuweather.com/currentconditions/v1/27905?apikey=XwdlbjEs0H6jIOn5A9BmJumqcvXVzkf1): failed to open stream: Connection timed out in /var/www/html/tmons/monitor.php on line 69
+[Sat Oct 22 16:01:19.322655 2022] [php7:notice] [pid 5706] [client 192.168.1.30:65295] PHP Notice:  Trying to get property 'Temperature' of non-object in /var/www/html/tmons/monitor.php on line 76
+[Sat Oct 22 16:01:19.322667 2022] [php7:notice] [pid 5706] [client 192.168.1.30:65295] PHP Notice:  Trying to get property 'Metric' of non-object in /var/www/html/tmons/monitor.php on line 76
+[Sat Oct 22 16:01:19.322672 2022] [php7:notice] [pid 5706] [client 192.168.1.30:65295] PHP Notice:  Trying to get property 'Value' of non-object in /var/www/html/tmons/monitor.php on line 76
+[Sat Oct 22 16:01:19.322758 2022] [php7:warn] [pid 5706] [client 192.168.1.30:65295] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 77
+[Sat Oct 22 16:01:19.322769 2022] [php7:notice] [pid 5706] [client 192.168.1.30:65295] PHP Notice:  Trying to get property 'Temperature' of non-object in /var/www/html/tmons/monitor.php on line 78
+[Sat Oct 22 16:01:19.322774 2022] [php7:notice] [pid 5706] [client 192.168.1.30:65295] PHP Notice:  Trying to get property 'Metric' of non-object in /var/www/html/tmons/monitor.php on line 78
+[Sat Oct 22 16:01:19.322779 2022] [php7:notice] [pid 5706] [client 192.168.1.30:65295] PHP Notice:  Trying to get property 'Value' of non-object in /var/www/html/tmons/monitor.php on line 78
+[Sat Oct 22 16:01:19.322810 2022] [php7:warn] [pid 5706] [client 192.168.1.30:65295] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 79
+[Sat Oct 22 16:01:19.322850 2022] [php7:warn] [pid 5706] [client 192.168.1.30:65295] PHP Warning:  SQLite3::exec(): database is locked in /var/www/html/tmons/monitor.php on line 88
+[Sat Oct 22 18:06:16.253495 2022] [core:error] [pid 1580] [client 152.89.196.211:59486] AH00126: Invalid URI in request POST /cgi-bin/.%2e/.%2e/.%2e/.%2e/bin/sh HTTP/1.1
+[Sun Oct 23 03:18:01.522588 2022] [mpm_prefork:notice] [pid 1162] AH00171: Graceful restart requested, doing restart
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message

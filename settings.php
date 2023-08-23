@@ -39,7 +39,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>[tmons] Post-paid room</title>
+	<title>[tmons] Settings</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/datepicker3.css" rel="stylesheet">
@@ -54,6 +54,7 @@
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
 </head>
 <body>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -93,6 +94,9 @@
                     <li class="active"><a class="" href="settings.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Settings
 					</a></li>
+					<li class=""><a class="" href="smslog.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> SMS Log
+					</a></li>
 					
 				</ul>
 			</li>
@@ -127,12 +131,21 @@
                             
                             <table cellborder='0' cellspace='0'>
                                 <tr>
-                                    <td width='150'><?php echo $data['temp1'];?></td>
-                                    <td><?php echo $data['temp2'];?></td>
+                                    <td width='150'><div id="temp1val"><?php echo $data['temp1'];?></div>
+  									<input type="text"  id="temp1" name="temp1" value="<?php echo $data['temp1'];?>" />
+								</td>
+                                    <td><div id="temp2val"><?php echo $data['temp2'];?></div>
+									<input type="text"  id="temp2" name="temp2" value="<?php echo $data['temp2'];?>" />
+								</td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo $data['number1'];?></td>
-                                    <td><?php echo $data['number2'];?></td>
+                                    <td><div id="number1val"><?php echo $data['number1'];?></div>
+									<input type="text" id="number1" name="number1" value="<?php echo $data['number1'];?>" />
+								</td>
+                                    <td><div id="number2val"><?php echo $data['number2'];?></div>
+									<input type="text" id="number2" name="number2" value="<?php echo $data['number2'];?>" />
+
+								</td>
                                 </tr>
                                 <tr>
                                     <td><div id='sta1'><?php if($data['status1']==1) echo 'On'; else echo 'Off';?></div></td>
@@ -141,6 +154,10 @@
                                 <tr>
                                     <td><input type="checkbox" id='switch1' onClick="update(1)" <?php if($data['status1']==1) echo 'checked';?> ></td>
                                     <td><input type="checkbox" id='switch2' onClick="update(2)" <?php if($data['status2']==1) echo 'checked';?> ></td>
+                                </tr>
+								<tr>
+                                    <td><input type="button" onClick="show()" Value="Edit" ></td>
+                                    <td><input type="button" id="edit" onClick="edit()" Value="Save" ></td>
                                 </tr>
                             </table>
 
@@ -152,9 +169,61 @@
 		
 		
 	</div>	<!--/.main-->
-	
+	<style>
+		.hidden {display:none}
+		.show {display:block}
+		#temp1,#temp2,#number1,#number2,#edit {display:none}
+	</style>
 	
 	<script type="text/javascript">
+
+  	function edit(){
+	
+	   var temp1 = $("#temp1").val();
+	   var temp2 = $("#temp2").val();
+	   var number1 = $("#number1").val();
+	   var number2 = $("#number2").val(); 
+	   //console.log(temp1+'-'+temp2+' '+number1+' '+number2);
+
+	   
+			$("#temp1").removeClass('show');
+			$("#temp2").removeClass('show');
+			$("#number1").removeClass('show');
+			$("#number2").removeClass('show');
+			$("#edit").removeClass('show');
+
+	   $.ajaxSetup({ cache: false });
+
+       $.ajax({
+        url: "update.php",
+        dataType: 'JSON',
+		method: "POST",
+        data: { temp1: temp1,temp2:temp2, number1: number1, number2:number2 },
+        success: function(resp)
+        {
+            
+			$("#temp1val").html(resp.temp1);
+			$("#temp2val").html(resp.temp2);
+			$("#number1val").html(resp.number1);
+			$("#number2val").html(resp.number2);
+            console.log(resp.temp1);
+
+        },
+        error: function () {
+            
+        }
+    });
+	  }
+
+	function show(){
+		console.log("Show clicked");
+		$("#temp1").addClass('show');
+		$("#temp2").addClass('show');
+		$("#number1").addClass('show');
+		$("#number2").addClass('show');
+		$("#edit").addClass('show');
+	}  
+
     function update(no) {
         var id = 'switch'+no;
         value = document.getElementById(id).checked;

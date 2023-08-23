@@ -3,6 +3,7 @@ session_start();
 require_once 'db.php';
 //echo '<pre>';
 
+
 if($_SESSION['login']==1)
 	 header('Location: home.php');   
 
@@ -45,7 +46,6 @@ $db->close();
 unset($db);
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +54,8 @@ unset($db);
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>[tmons] - Login</title>
+	<link rel="shortcut icon" href="/favicon.ico?v=1" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -75,7 +77,7 @@ unset($db);
 		<?php } ?>
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
-				<img src="images/logo.png" width='380' style='padding:10px 40px'>
+				<img src="images/logo.png?v=1" width='380' style='padding:10px 40px'>
 				<div class="panel-heading">Temperature Monitoring System 
 					
 				</div>

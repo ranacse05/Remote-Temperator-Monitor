@@ -1,5 +1,7 @@
 <?php 
-	 require_once 'db.php';
+
+    include 'functions.php';
+
    date_default_timezone_set('Asia/Dhaka');
    if(!$file = fopen("sys2.log","a+"))
    $file = fopen("sys2.log","w");
@@ -30,7 +32,7 @@
    $results1= $db->query($select); 
    $res1 = $results1->fetchArray();
    
-   if($temp>=27 && $res1['status1']==1)
+   if($temp>=$res1['temp1'] && $res1['status1']==1)
    {
 
       if(!$file2 = fopen("sms.log","a+"))
@@ -66,17 +68,10 @@
       }
       //echo $sms_text;
 
-      $sms_text = urlencode($sms_text);
-      $number = $res1['number1'];
-      $url = "http://bulksms1.teletalk.com.bd:8091/link_sms_send.php?op=SMS&charset=ASCII&user=datacenter&pass=aP1_dsc@Dc_D&mobile={$number}&sms={$sms_text}";
-      $sms_response = file_get_contents($url);
-      fwrite($file2,$sms_response);
+      send_text( $res1['number1'],$sms_text);
 
          if($temp>=$res1['temp2'] && $res1['status2']==1){
-            $number = $res1['number2'];
-            $url = "http://bulksms1.teletalk.com.bd:8091/link_sms_send.php?op=SMS&charset=ASCII&user=datacenter&pass=aP1_dsc@Dc_D&mobile={$number}&sms={$sms_text}";
-            $sms_response = file_get_contents($url);
-            fwrite($file2,$sms_response);
+            send_text( $res1['number2'],$sms_text);
          }
    }
 

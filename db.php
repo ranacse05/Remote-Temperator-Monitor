@@ -1,7 +1,8 @@
 <?php
 class MyDB extends SQLite3 {
       function __construct() {
-         $this->open('database/tmons.sqlite3');
+         //$this->open('database/tmons.sqlite3');
+         $this->open('/var/www/html/tmons/database/tmons.sqlite3');
       }
    }
 

@@ -10,7 +10,7 @@
      require_once 'db.php';
 
 
-   $results= $db->query("select minutes,temp,outdoor from minutes2 order by minutes asc");
+   $results= $db->query("select minutes,temp,outdoor,time_stamp from minutes2 order by minutes asc");
 
   //echo 'here';
 
@@ -36,6 +36,10 @@
    array_push($data, $temp_array);
   }
 
+
+   $select = "Select * from settings";
+   $results1= $db->query($select); 
+   $res1 = $results1->fetchArray();
   
    $db->close();
    unset($db);
@@ -102,6 +106,9 @@
 					<li class=""><a class="" href="settings.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Settings
 					</a></li>
+					<li class=""><a class="" href="smslog.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> SMS Log
+					</a></li>
 				</ul>
 			</li>
 			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
@@ -143,7 +150,7 @@
 	
 	<script type="text/javascript">
 $(function() {
-      var threshold = 27;
+      var threshold = <?php echo $res1['temp1']?>;
 
       function GetData() {
     $.ajaxSetup({ cache: false });
