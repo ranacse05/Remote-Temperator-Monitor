@@ -9,7 +9,13 @@
    if(!$file = fopen("sys.log","a+"))
    $file = fopen("sys.log","w");
 
+<<<<<<< HEAD
 	$temp = number_format($_GET['temperature'],2);
+=======
+   
+
+	$temp = number_format($_GET['temperature']-1.5,2);
+>>>>>>> cd4238d119b4eea785d78200577652f54058f202
 	$minute =  intval(date('i'));
 	$time = time();
    $chipId = $_GET['chipId'];
@@ -130,14 +136,102 @@
       }
       //echo $sms_text;
 
+<<<<<<< HEAD
       send_text( $res1['number1'],$sms_text);
 
          if($temp>=$res1['temp2'] && $res1['status2']==1){
             send_text( $res1['number2'],$sms_text);
+=======
+      $sms_text = urlencode($sms_text);
+      $number = $res1['number1'];
+	   $url = 'sms_url'
+      $sms_response = file_get_contents($url);
+      fwrite($file2,$sms_response);
+
+         if($temp>=$res1['temp2'] && $res1['status2']==1){
+            $number = $res1['number2'];
+            $url = "sms_url";
+            $sms_response = file_get_contents($url);
+            fwrite($file2,$sms_response);
+>>>>>>> cd4238d119b4eea785d78200577652f54058f202
          }
    }
 
 
+<<<<<<< HEAD
+=======
+   if($minute==0)
+   {
+      //$url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/23.830866%2C%2090.417732?unitGroup=metric&key=Z6SNVEG7JTYQU52LBQULPV3LJ";
+      
+      $url = "http://dataservice.accuweather.com/currentconditions/v1/27905?apikey=apikey";
+      $data = file_get_contents($url);
+      $raw = json_decode($data);
+      // echo 'DateTime:'.print_r($raw->days[0]->datetime);
+      
+      //echo '<pre>';
+      //print_r($raw->currentConditions->temp);
+      //echo '</pre>';
+      $sql = 'UPDATE minutes set outdoor="'.$raw[0]->Temperature->Metric->Value.'"';
+      $ret = $db->exec($sql);
+      $sql = 'UPDATE minutes2 set outdoor="'.$raw[0]->Temperature->Metric->Value.'"';
+      $ret = $db->exec($sql);
+
+   }
+
+
+    $sql = 'UPDATE minutes set time_stamp="'.$time.'", temp="'.$temp.'" where minutes="'.$minute.'"';
+	
+	//fwrite($file,$sql."\n");
+
+   $ret = $db->exec($sql);
+   if(!$ret) {
+      //echo $db->lastErrorMsg();
+      fwrite($file,$db->lastErrorMsg());
+      if($db->lastErrorMsg()=='database is locked')
+      $db->exec('PRAGMA journal_mode = wal;');
+
+   } else {
+      //echo ;
+      fwrite($file,"Record for {$minute} updated {$temp} successfully\n");
+   }
+
+   if($minute==59)
+   {
+        $avg = 0.0 ; 
+        $results= $db->query("select avg(temp) from minutes");
+        while ($res= $results->fetchArray())
+           {
+            $avg =number_format($res[0],2) ;
+           }
+
+        
+           $outdoor_avg = 0.0 ; 
+           $results= $db->query("select avg(outdoor) from minutes");
+           while ($res= $results->fetchArray())
+              {
+               $outdoor_avg =number_format($res[0],2) ;
+              }  
+
+   $sql = 'INSERT into hours (`date`,`hour`,`temp`,`timestamp`,`outdoor`) values ("'.date('Y-m-d',$time).'","'.date('H',$time).'",'.$avg.',"'.$time.'","'.$outdoor_avg.'")';
+      
+
+   $ret = $db->exec($sql);
+      if(!$ret) {
+         
+         fwrite($file,$db->lastErrorMsg());
+         if($db->lastErrorMsg()=='database is locked')
+         $db->exec('PRAGMA journal_mode = wal;');
+
+      } else {
+         //echo ;
+         fwrite($file,"Record for ".date('Y-m-d',$time).'/'.date('H',$time)." inserted successfully\n");
+      }
+
+   }
+
+
+>>>>>>> cd4238d119b4eea785d78200577652f54058f202
    $db->close();
    unset($db);
    fclose($file);
