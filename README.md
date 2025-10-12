@@ -37,11 +37,11 @@ Tmons (Temperature Monitor) - A custom-built monitoring system that:
 *Real-time overview of both server rooms with current temperature, humidity, and system status*
 
 ### 2. Room 1 Details
-![Room 1 Screenshot](temp_sensor/screenshots//room1.png)
+![Room 1 Screenshot](temp_sensor/screenshots/room-1.png)
 *Detailed view of Room 1 with historical data, temperature trends, and AC status*
 
 ### 3. Room 2 Details  
-![Room 2 Screenshot](temp_sensor/screenshots/room2.png)
+![Room 2 Screenshot](temp_sensor/screenshots/room-2.png)
 *Detailed view of Room 2 with historical data, temperature trends, and AC status*
 
 ### 4. System Settings
@@ -49,7 +49,7 @@ Tmons (Temperature Monitor) - A custom-built monitoring system that:
 *Configuration panel for temperature thresholds, SMS alerts, and system parameters*
 
 ### 5. SMS Logs
-![SMS Logs Screenshot](temp_sensor/screenshots/sms-logs.png)
+![SMS Logs Screenshot](temp_sensor/screenshots/log.png)
 *Complete history of all SMS notifications sent by the system*
 
 ## 🔌 Schematic Diagram
