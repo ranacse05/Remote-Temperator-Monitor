@@ -85,7 +85,7 @@ Tmons (Temperature Monitor) - A custom-built monitoring system that:
 
 ## 📊 Alert Thresholds
 
-- **Warning**: >22°C - SMS notification sent
+- **Warning**: >20°C - SMS notification sent
 - **Critical**: >27°C - Immediate action required
 - **AC Failure Detection**: Rapid temperature rise detection
 
@@ -103,16 +103,6 @@ Key configuration parameters in `settings.php`:
 - **Immediate** response to AC failures
 - **24/7** remote monitoring capability
 - **Cost-effective** solution compared to commercial systems
-
-## 🐛 Troubleshooting
-
-Common issues and solutions:
-- Sensor reading failures: Check wiring and power
-- WiFi disconnections: Verify signal strength
-- SMS delivery issues: Check gateway configuration
-- Database errors: Verify file permissions
-
-
 
 ## 👨‍💻 Developer
 
