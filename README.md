@@ -53,11 +53,11 @@ Tmons (Temperature Monitor) - A custom-built monitoring system that:
 *Complete history of all SMS notifications sent by the system*
 
 ## 🔌 Schematic Diagram
-![Schematic Diagram](images/schematic.png)
+![Schematic Diagram](temp_sensor/screenshots/tmons_schem.png)
 *Electrical wiring diagram for NodeMCU, DHT22, and OLED display connections*
 
 ## 📸 Physical Device
-![Actual Device](images/device.jpg)
+![Actual Device](temp_sensor/screenshots/device.jpg)
 *Actual implementation of the monitoring unit in server room environment*
 
 ## ⚙️ Installation & Setup
