@@ -49,7 +49,7 @@ Tmons (Temperature Monitor) - A custom-built monitoring system that:
 *Configuration panel for temperature thresholds, SMS alerts, and system parameters*
 
 ### 5. SMS Logs
-![SMS Logs Screenshot](temp_sensor/screenshots/log.png)
+![SMS Logs Screenshot](temp_sensor/screenshots/logs.png)
 *Complete history of all SMS notifications sent by the system*
 
 ## 🔌 Schematic Diagram
